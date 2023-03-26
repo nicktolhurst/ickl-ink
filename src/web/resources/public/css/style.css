@@ -1,0 +1,89 @@
+/* resources/public/css/style.css */
+body {
+    background: #101013;
+    padding: 0 48px;
+  }
+  
+  * {
+    font-family: 'Fira Code';
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 100%;
+    padding-top: 72px;
+  }
+  
+  .header-text {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: #ed254e;
+  }
+
+
+  form {
+    margin: 56px 0;
+    width: 100%;
+    /* max-width: 485asdpx; */
+  }
+   
+  input#url-input {
+    background: #101013;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    outline: none;
+    color: #ed254e;
+    caret-color: transparent;
+    border: 0px solid #ed254e;
+    width: 100%;
+    padding: 0px;
+  }
+
+  #label {
+    color: #ed254e;
+    position: absolute;
+    font-weight: 1000;
+    font-size: 20px;
+    left: -20px;
+    top: 2px;
+  }
+
+  form label {
+    color: #ed254e;
+  }
+  .prompt {
+    position: relative;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #ed254e;
+    padding: 0px 4px;
+
+  }
+  .prompt	i {
+    position: absolute;
+    width: 12px;
+    height: 13%;
+    background-color: #ed254e;;
+    left: 4px;
+    top: 85%;
+    animation-name: blink;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    display: none;
+  }
+
+  .prompt input:focus + i {
+    display:flex;
+  } 
+
+  @keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }

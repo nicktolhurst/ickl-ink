@@ -1,0 +1,12 @@
+.calva/output-window
+.clj-kondo/.cache
+.cpcache
+.lein-failures
+.lein-repl-history
+.lsp
+.nrepl-port
+.portal
+.socket-repl-port
+.vscode
+cljs-test-runner-out
+target
