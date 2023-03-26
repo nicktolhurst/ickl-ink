@@ -24,14 +24,25 @@
 (defn- set-x-pos [x] (goog.math.Coordinate. (+ (. caret-pos -x) (* x 12)) (. caret-pos -y)))
 (defn- handle-caret-pos [evt] (gstyle/setPosition caret (set-x-pos (.. evt -currentTarget -selectionStart))))
 
+
+(defn- add-prompt-to-terminal [text]
+  (let [el (hipo/create [:div.prompt [:span text]])] 
+       (.insertBefore form el prompt)))
+
+
 ;; when user submits form (line), insert and entry for it.
 (defn- handle-keydown [evt]
-  (-> 
-   (when (= evt.keyCode KeyCodes.ENTER)
-     (let [el (hipo/create [:div.prompt [:span (.. evt -currentTarget -value)]])] 
-       (.insertBefore form el prompt) 
-       (.reset form)))
-   (when (= evt.keyCode KeyCodes.ESC))))
+  (let [text (.. evt -currentTarget -value)]
+
+   ;; when the ENTER key is pressed, we want to submit the form
+   ;; and return a response.
+    (when (= evt.keyCode KeyCodes.ENTER)
+      (add-prompt-to-terminal text)
+      (.reset form))
+
+   ;; when the ESCAPE key is pressed, clear the terminal.
+    (when (= evt.keyCode KeyCodes.ESC) (.reset form)))
+  )
 
 ;; when user clicks (anywhere) keep focus in input box.
 (defn- handle-click [evt]
