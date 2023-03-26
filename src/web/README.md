@@ -1,6 +1,6 @@
-# counter
+# Web
 
-FIXME: Write a one-line description of your library/project.
+The web UI for the ickl.ink service.
 
 ## Overview
 
@@ -28,10 +28,3 @@ To create a production build run:
 
 	rm -rf target/public
 	clojure -A:fig:min
-
-
-## License
-
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.

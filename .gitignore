@@ -1,5 +1,5 @@
-.calva/output-window
-.clj-kondo/.cache
+**/.calva/
+**/.clj-kondo/
 .cpcache
 .lein-failures
 .lein-repl-history
