@@ -6,4 +6,6 @@
 (def isStarted? (terminal/start))
 
 (when isStarted? 
-  (log/console (str "Terminal Started: " isStarted?)))
+  (log/console isStarted?))
+
+
