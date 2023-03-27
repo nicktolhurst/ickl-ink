@@ -17,6 +17,20 @@ services:
     volumes:
       - ./src/api/env.edn:/env.edn
 
+  web:
+    image: web
+    build:
+      context: ./src/web/
+      dockerfile: Dockerfile
+    environment:
+      API_HOST: api
+    ports:
+      - 81:80
+    networks:
+      - apinet
+    volumes:
+      - ./src/web/env.edn:/env.edn
+
   certbot:
     image: certbot/certbot
     restart: unless-stopped

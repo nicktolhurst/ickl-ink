@@ -1,11 +1,9 @@
 (ns ^:figwheel-hooks ickl-ink.core
-  (:require
-   [ickl-ink.log :as log]
-   [ickl-ink.terminal :as terminal]))
-
-(def isStarted? (terminal/start))
-
-(when isStarted? 
-  (log/console isStarted?))
+  (:require [ickl-ink.cmd :as cmd]
+            [ickl-ink.terminal :as terminal]))
 
 
+(terminal/start)
+
+(terminal/listenfor "clear" cmd/clear)
+(terminal/listenfor "shorten" cmd/shorten)

@@ -5,47 +5,57 @@
    [goog.events :as gevents]
    [goog.style :as gstyle]
    [hipo.core :as hipo]
+;;    [ickl-ink.log :as log]
+   [clojure.string :as str]
    [ickl-ink.log :as log])
-   (:import [goog.events KeyCodes]))
+   (:import [goog.events KeyCodes]
+            [goog.events EventType]))
 
 ;; core elements of the terminal window.
+(defonce doc
+  (gdom/getDocument))
 (defonce input
   (gdom/getElement "input"))
 (defonce caret
   (gdom/getElement "caret"))
 (defonce form
   (gdom/getElement "form"))
-(defonce prompt
-  (gdom/getElement "prompt"))
+(defonce output
+  (gdom/getElement "output"))
+
+;; basic terminal functionality
+(defn- clear-prompt [] (.reset form))
+(defn- clear-output [] (.replaceChildren output ""))
+(defn clear [] (clear-output))
 
 ;; make the custom caret move with the user input
 (defonce caret-pos
   (gstyle/getPosition caret))
 (defn- set-x-pos [x] (goog.math.Coordinate. (+ (. caret-pos -x) (* x 12)) (. caret-pos -y)))
-(defn- handle-caret-pos [evt] (gstyle/setPosition caret (set-x-pos (.. evt -currentTarget -selectionStart))))
+(defn handle-caret-pos [evt] (gstyle/setPosition caret (set-x-pos (.. evt -currentTarget -selectionStart))))
 
+;; When the key down is ENTER, evaluate the text and run a command.
+(defn listenfor [command-text delegate]
+  (gevents/listen input EventType.KEYDOWN
+   (fn [evt] 
+     (let [args (str/split (.. evt -currentTarget -value) #" ")]
+       (when (= evt.keyCode KeyCodes.ENTER) 
+         (when (= command-text (first args))
+           (delegate (rest args))(clear-prompt)))))))
 
-(defn- add-prompt-to-terminal [text]
-  (let [el (hipo/create [:div.prompt [:span text]])] 
-       (.insertBefore form el prompt)))
+(defn respond [response] 
+  (let [el (hipo/create [:p response])]
+    ;; (log/console el)
+    (.appendChild output el)))
 
+(defn as-link [url](str(hipo/create [:a {:href url} url])))
 
-;; when user submits form (line), insert and entry for it.
+;; use escape to clear the terminal prompt.
 (defn- handle-keydown [evt]
-  (let [text (.. evt -currentTarget -value)]
-
-   ;; when the ENTER key is pressed, we want to submit the form
-   ;; and return a response.
-    (when (= evt.keyCode KeyCodes.ENTER)
-      (add-prompt-to-terminal text)
-      (.reset form))
-
-   ;; when the ESCAPE key is pressed, clear the terminal.
-    (when (= evt.keyCode KeyCodes.ESC) (.reset form)))
-  )
+    (when (= evt.keyCode KeyCodes.ESC) (clear-prompt)))
 
 ;; when user clicks (anywhere) keep focus in input box.
-(defn- handle-click [evt]
+(defn- handle-mouseup [evt]
   (.focus input))
 
 ;; when user submits the form, prevent the page from reloading.
@@ -53,8 +63,8 @@
   (.preventDefault evt))
 
 (defn start []
-  (do (gevents/listen input  "keyup"     handle-caret-pos) 
-      (gevents/listen input  "click"     handle-click)  
-      (gevents/listen form   "submit"    handle-submit)  
-      (gevents/listen input  "keydown"   handle-keydown)
+  (do (gevents/listen input  EventType.KEYUP     handle-caret-pos) 
+      (gevents/listen doc    EventType.MOUSEUP   handle-mouseup)
+      (gevents/listen form   EventType.SUBMIT    handle-submit)  
+      (gevents/listen input  EventType.KEYDOWN   handle-keydown)
       true))
