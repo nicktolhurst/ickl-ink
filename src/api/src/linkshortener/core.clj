@@ -18,7 +18,7 @@
   (let [url (get-in req [:body-params :url])
         slug (generate-slug)]
     (db/insert-redirect! slug url)
-    (r/response (str "created slug " slug))))
+    (r/response slug)))
 
 (def app
   (ring/ring-handler

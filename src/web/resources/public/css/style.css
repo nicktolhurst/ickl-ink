@@ -1,89 +1,125 @@
 /* resources/public/css/style.css */
+html {
+  height: 100%;
+}
+
 body {
-    background: #101013;
-    padding: 0 48px;
-  }
-  
-  * {
-    font-family: 'Fira Code';
-  }
-  
-  #app {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    width: 100%;
-    padding-top: 72px;
-  }
-  
-  .header-text {
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 38px;
-    color: #ed254e;
-  }
+  background: #101013;
+  padding: 0 48px;
+  height: 100%;
+}
+
+* {
+  font-family: 'Fira Code';
+  /* font-feature-settings: "aalt", "abvf", "abvm", "abvs", "afrc", "akhn", "blwf", "blwm", "blws", "calt", "case", "ccmp", "cfar", "cjct", "clig", "cpct", "cpsp", "cswh", "curs", "c2pc", "c2sc", "dist", "dlig", "dnom", "dtls", "expt", "falt", "fin2", "fin3", "fina", "flac", "frac", "fwid", "half", "haln", "halt", "hist", "hkna", "hlig", "hngl", "hojo", "hwid", "init", "isol", "ital", "jalt", "jp78", "jp83", "jp90", "jp04", "kern", "lfbd", "liga", "ljmo", "lnum", "locl", "ltra", "ltrm", "mark", "med2", "medi", "mgrk", "mkmk", "mset", "nalt", "nlck", "nukt", "numr", "onum", "opbd", "ordn", "ornm", "palt", "pcap", "pkna", "pnum", "pref", "pres", "pstf", "psts", "pwid", "qwid", "rand", "rclt", "rkrf", "rlig", "rphf", "rtbd", "rtla", "rtlm", "ruby", "rvrn", "salt", "sinf", "size", "smcp", "smpl", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "ss10", "ss11", "ss12", "ss13", "ss14", "ss15", "ss16", "ss17", "ss18", "ss19", "ss20", "ssty", "stch", "subs", "sups", "swsh", "titl", "tjmo", "tnam", "tnum", "trad", "twid", "unic", "valt", "vatu", "vert", "vhal", "vjmo", "vkna", "vkrn", "vpal", "vrt2", "vrtr", "zero";
+  -webkit-font-feature-settings: "aalt", "abvf", "abvm", "abvs", "afrc", "akhn", "blwf", "blwm", "blws", "calt", "case", "ccmp", "cfar", "cjct", "clig", "cpct", "cpsp", "cswh", "curs", "c2pc", "c2sc", "dist", "dlig", "dnom", "dtls", "expt", "falt", "fin2", "fin3", "fina", "flac", "frac", "fwid", "half", "haln", "halt", "hist", "hkna", "hlig", "hngl", "hojo", "hwid", "init", "isol", "ital", "jalt", "jp78", "jp83", "jp90", "jp04", "kern", "lfbd", "liga", "ljmo", "lnum", "locl", "ltra", "ltrm", "mark", "med2", "medi", "mgrk", "mkmk", "mset", "nalt", "nlck", "nukt", "numr", "onum", "opbd", "ordn", "ornm", "palt", "pcap", "pkna", "pnum", "pref", "pres", "pstf", "psts", "pwid", "qwid", "rand", "rclt", "rkrf", "rlig", "rphf", "rtbd", "rtla", "rtlm", "ruby", "rvrn", "salt", "sinf", "size", "smcp", "smpl", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "ss09", "ss10", "ss11", "ss12", "ss13", "ss14", "ss15", "ss16", "ss17", "ss18", "ss19", "ss20", "ssty", "stch", "subs", "sups", "swsh", "titl", "tjmo", "tnam", "tnum", "trad", "twid", "unic", "valt", "vatu", "vert", "vhal", "vjmo", "vkna", "vkrn", "vpal", "vrt2", "vrtr", "zero";
+  text-rendering: optimizeLegibility; */
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 72px;
+}
+
+.header-text {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  color: #ed254e;
+}
 
 
-  form {
-    margin: 56px 0;
-    width: 100%;
-    /* max-width: 485asdpx; */
-  }
-   
-  input#input {
-    background: #101013;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    outline: none;
-    color: #ed254e;
-    caret-color: transparent;
-    border: 0px solid #ed254e;
-    width: 100%;
-    padding: 0px;
-  }
+form {
+  width: 100%;
+}
 
-  #label {
-    color: #ed254e;
-    position: absolute;
-    font-weight: 1000;
-    font-size: 20px;
-    left: -20px;
-    top: 2px;
-  }
+input#input {
+  background: #101013;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  outline: none;
+  color: #ed254e;
+  caret-color: transparent;
+  border: 0px solid #ed254e;
+  width: 100%;
+  padding: 0px;
+  letter-spacing: .08em;
+}
 
-  form label {
-    color: #ed254e;
-  }
-  .prompt {
-    position: relative;
-    margin-top: 8px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    color: #ed254e;
-    padding: 0px 4px;
+#label {
+  color: #ed254e;
+  position: absolute;
+  font-weight: 1000;
+  font-size: 20px;
+  left: -20px;
+  top: 2px;
+}
 
-  }
-  .prompt	i {
-    position: absolute;
-    width: 12px;
-    height: 13%;
-    background-color: #ed254e;;
-    left: 4px;
-    top: 85%;
-    animation-name: blink;
-    animation-duration: 800ms;
-    animation-iteration-count: infinite;
+.prompt {
+  position: relative;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #ed254e;
+  padding: 0px 4px;
+}
+
+.typing {
+  overflow: hidden;
+  animation: type 1.5s steps(40, end);
+}
+
+.prompt i {
+  position: absolute;
+  width: 12px;
+  height: 13%;
+  background-color: #ed254e;
+  left: 4px;
+  top: 85%;
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+  display: none;
+}
+
+.prompt input:focus+i {
+  display: flex;
+}
+
+
+@keyframes blink {
+  from {
     opacity: 1;
-    display: none;
   }
 
-  .prompt input:focus + i {
-    display:flex;
-  } 
-
-  @keyframes blink {
-    from { opacity: 1; }
-    to { opacity: 0; }
+  to {
+    opacity: 0;
   }
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+
+.output{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #71f79f;
+  letter-spacing: .08em;
+}
+
