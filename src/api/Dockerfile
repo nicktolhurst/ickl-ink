@@ -6,7 +6,6 @@ RUN clj -Sdeps '{:mvn/local-repo "./src/linkshortener"}'
 COPY ./uberdeps /uberdeps
 COPY ./src /src
 
-
 RUN chmod +x /uberdeps/package.sh
 RUN /uberdeps/package.sh
 
