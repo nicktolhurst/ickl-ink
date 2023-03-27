@@ -8,7 +8,6 @@
 (defn- to-url [& args]
   (let [url (apply str args)
         urlmap (http/parse-url url)]
-    ;; TODO: validate URL.
     url))
 
 (defn- post [url body] (http/post url {:with-credentials? false

@@ -1,13 +1,10 @@
 (ns ickl-ink.terminal
   (:require
-;;    [ickl-ink.log :as log]
    [goog.dom :as gdom]
    [goog.events :as gevents]
    [goog.style :as gstyle]
    [hipo.core :as hipo]
-;;    [ickl-ink.log :as log]
    [clojure.string :as str]
-   [ickl-ink.log :as log])
    (:import [goog.events KeyCodes]
             [goog.events EventType]))
 
