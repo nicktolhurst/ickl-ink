@@ -10,3 +10,4 @@
 .vscode
 cljs-test-runner-out
 target
+**/proxy/data/certbot/conf/accounts/
