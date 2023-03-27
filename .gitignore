@@ -10,3 +10,4 @@
 .vscode
 cljs-test-runner-out
 target
+**/data/

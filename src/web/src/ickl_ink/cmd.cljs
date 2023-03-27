@@ -7,9 +7,6 @@
 
 (defn clear [] (terminal/clear))
 
-
-
-
 (defn shorten [args]
   (go 
     (let [url (nth args 0)
