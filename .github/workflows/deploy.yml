@@ -13,10 +13,10 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.8
       with:
-        host: http://34.76.77.3/
+        host: 34.76.77.3
         key: ${{ secrets.KEY }}
         port: 22
         script: |
-          cd icklink
+          cd ~/icklink
           git pull
           docker-compose up -d --build
