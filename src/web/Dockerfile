@@ -3,13 +3,12 @@ FROM clojure:tools-deps AS builder
 
 COPY resources /resources
 
-COPY deps.edn .
-COPY dev.cljs.edn .
-COPY figwheel-main.edn .
+COPY . .
 
 RUN clj -A:fig:min
 
 COPY target /target
+COPY resources /resources
 
 
 #-- RUNTIME CONTAINER --#
