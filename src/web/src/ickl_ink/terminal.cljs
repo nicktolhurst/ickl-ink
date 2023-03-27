@@ -41,7 +41,7 @@
            (delegate (rest args))(clear-prompt)))))))
 
 (defn respond [response] 
-  (let [el (hipo/create [:p response])]
+  (let [el (hipo/create response)]
     ;; (log/console el)
     (.appendChild output el)))
 

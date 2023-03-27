@@ -123,3 +123,20 @@ input#input {
   letter-spacing: .08em;
 }
 
+
+
+.white {
+  color: white;
+}
+
+.secondary {
+  color: #ed254e;
+}
+
+.primary {
+  color: #fadd00;
+}
+
+.other {
+  color: #00c1e4;
+}

@@ -1,14 +1,12 @@
 (ns ickl-ink.api
   (:require [cljs-http.client :as http]))
 
-(def host "https://localhost/")
+(def host "https://ickl.ick/")
 (def api "api/")
 (def redirect "redirect/")
 
 (defn- to-url [& args]
-  (let [url (apply str args)
-        urlmap (http/parse-url url)]
-    url))
+  (let [url (apply str args)] url))
 
 (defn- post [url body] (http/post url {:with-credentials? false
                                       :json-params body}))

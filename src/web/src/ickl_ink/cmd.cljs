@@ -15,6 +15,9 @@
           slug (:body redirect)
           result (str "https://localhost/" slug "/")
           link (terminal/as-link result)
-          response (str url " --> " link)]
+          response [:p 
+                    [:span.secondary url] 
+                    [:span.white " --> "] 
+                    [:span.primary link]]]
       (log/console response)
       (terminal/respond response))))
