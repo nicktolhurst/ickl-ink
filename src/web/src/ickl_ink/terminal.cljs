@@ -4,7 +4,7 @@
    [goog.events :as gevents]
    [goog.style :as gstyle]
    [hipo.core :as hipo]
-   [clojure.string :as str]
+   [clojure.string :as str])
    (:import [goog.events KeyCodes]
             [goog.events EventType]))
 
