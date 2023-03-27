@@ -13,7 +13,7 @@
           ;; slug (nth args 1 "No slug :(")
           redirect (<! (api/create-redirect url))
           slug (:body redirect)
-          result (str "https://localhost/" slug "/")
+          result (str "https://ickl.ink/" slug "/")
           link (terminal/as-link result)
           response [:p 
                     [:span.secondary url] 
