@@ -10,4 +10,4 @@
 .vscode
 cljs-test-runner-out
 target
-**/proxy/data/
+**/data/
