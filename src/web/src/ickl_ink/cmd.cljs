@@ -4,7 +4,7 @@
             [ickl-ink.terminal :as terminal]
             [cljs.core.async :refer [<!]]))
 
-(defn clear [] (terminal/clear))
+(defn clear [] (terminal/clear-output))
 
 (defn shorten [args]
   (go 
@@ -18,3 +18,4 @@
                     [:span.white " <-- "] 
                     [:a.primary {:href link} link]]]
       (terminal/respond response))))
+
