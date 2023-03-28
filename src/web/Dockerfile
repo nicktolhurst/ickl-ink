@@ -1,22 +1,14 @@
-#-- BUILDER CONTAINER --#
-FROM clojure:tools-deps AS builder
+#-- BUILD CONTAINER --#
+FROM clojure:tools-deps AS BUILD
 
-COPY resources /resources
+WORKDIR /home
 
 COPY . .
 
-RUN rm -rf target/public
 RUN clj -A:fig:min
 
-COPY target /target
-COPY resources /resources
-
-
-#-- RUNTIME CONTAINER --#
+# #-- RUNTIME CONTAINER --#
 FROM nginx AS WEB
 
-RUN rm /usr/share/nginx/html/*
-COPY --from=builder /resources/public/ /usr/share/nginx/html/
-COPY --from=builder target/public/cljs-out/dev-main.js /usr/share/nginx/html/cljs-out/dev-main.js
-
-# ENTRYPOINT ["java", "-cp", "project.jar", "clojure.main", "-m", "ickl-ink.core"]
+COPY --from=BUILD /home/resources/public/ /usr/share/nginx/html/
+COPY --from=BUILD /home/target/public/cljs-out/dev-main.js /usr/share/nginx/html/cljs-out/dev-main.js
