@@ -22,7 +22,6 @@
              [:strong "*max 6 chars"]
              [:br]]})
 
-
 (defn- text-from [event] (.. event -currentTarget -value))
 
 (defn- suggestions-exist-with? [text]
