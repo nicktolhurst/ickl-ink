@@ -77,10 +77,10 @@ input#input {
 .prompt i {
   position: absolute;
   width: 12px;
-  height: 80%;
+  height: 20px;
   background-color: #ed254e;
   left: 4px;
-  top: 9%;
+  top: 2px;
   animation-name: blink;
   animation-duration: 800ms;
   animation-iteration-count: infinite;
@@ -142,7 +142,9 @@ input#input {
 }
 
 
-
+.suggestion {
+  color:#31363b;
+}
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
