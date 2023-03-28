@@ -17,7 +17,7 @@
 (defn listenfor [command-text delegate]
   (gevents/listen el/input EventType.KEYDOWN
    (fn [evt] 
-     (let [args (str/split (.. evt -currentTarget -value) #" ")]
+     (let [args (str/split (.toLowerCase (.. evt -currentTarget -value)) #" ")]
        (when (= evt.keyCode KeyCodes.ENTER) 
          (when (= command-text (first args))
            (delegate (rest args))(clear-prompt)))))))

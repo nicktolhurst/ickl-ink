@@ -25,6 +25,7 @@
    (ring/router
     ["/"
      [":slug/" redirect]
+     [":slug" redirect]
      ["api/"
       ["redirect/" {:post create-redirect}]]
      ["" {:handler (fn [req] {:body "Landing Page" :status 200})}]]

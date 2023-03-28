@@ -48,6 +48,7 @@ input#input {
   width: 100%;
   padding: 0px;
   letter-spacing: .08em;
+  text-transform:lowercase
 }
 
 #label {
