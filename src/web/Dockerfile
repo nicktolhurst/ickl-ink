@@ -5,6 +5,7 @@ COPY resources /resources
 
 COPY . .
 
+RUN rm -rf target/public
 RUN clj -A:fig:min
 
 COPY target /target

@@ -10,6 +10,5 @@
 
 (defn- post [url body] (http/post url {:with-credentials? false
                                       :json-params body}))
-
 (defn create-redirect [url]
   (post (to-url host api redirect) {:url url}))
