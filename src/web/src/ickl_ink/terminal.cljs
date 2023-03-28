@@ -45,8 +45,6 @@
     ;; (log/console el)
     (.appendChild output el)))
 
-(defn as-link [url](str(hipo/create [:a {:href url} url])))
-
 ;; use escape to clear the terminal prompt.
 (defn- handle-keydown [evt]
     (when (= evt.keyCode KeyCodes.ESC) (clear-prompt)))

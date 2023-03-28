@@ -1,7 +1,6 @@
 (ns ickl-ink.cmd
   (:require-macros [cljs.core.async.macros :refer [go]])
-  (:require [ickl-ink.log :as log]
-            [ickl-ink.api :as api]
+  (:require [ickl-ink.api :as api]
             [ickl-ink.terminal :as terminal]
             [cljs.core.async :refer [<!]]))
 
@@ -13,11 +12,9 @@
           ;; slug (nth args 1 "No slug :(")
           redirect (<! (api/create-redirect url))
           slug (:body redirect)
-          result (str "https://ickl.ink/" slug "/")
-          link (terminal/as-link result)
+          link (str "https://" (.. js/window -location -hostname) "/" slug "/")
           response [:p 
                     [:span.secondary url] 
-                    [:span.white " --> "] 
-                    [:span.primary link]]]
-      (log/console response)
+                    [:span.white " <-- "] 
+                    [:a.primary {:href link} link]]]
       (terminal/respond response))))

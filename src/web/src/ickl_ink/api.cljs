@@ -1,7 +1,7 @@
 (ns ickl-ink.api
   (:require [cljs-http.client :as http]))
 
-(def host "https://ickl.ick/")
+(def host (str "https://" (.. js/window -location -hostname) "/"))
 (def api "api/")
 (def redirect "redirect/")
 
