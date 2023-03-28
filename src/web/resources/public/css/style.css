@@ -56,7 +56,7 @@ input#input {
   font-weight: 1000;
   font-size: 20px;
   left: -20px;
-  top: 2px;
+  top: 0px;
 }
 
 .prompt {
@@ -77,10 +77,10 @@ input#input {
 .prompt i {
   position: absolute;
   width: 12px;
-  height: 13%;
+  height: 80%;
   background-color: #ed254e;
   left: 4px;
-  top: 85%;
+  top: 9%;
   animation-name: blink;
   animation-duration: 800ms;
   animation-iteration-count: infinite;
@@ -140,8 +140,6 @@ input#input {
 .other {
   color: #00c1e4;
 }
-
-
 
 
 

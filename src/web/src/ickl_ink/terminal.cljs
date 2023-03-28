@@ -28,7 +28,10 @@
 ;; make the custom caret move with the user input
 (defonce caret-pos
   (gstyle/getPosition caret))
-(defn- set-x-pos [x] (goog.math.Coordinate. (+ (. caret-pos -x) (* x 12)) (. caret-pos -y)))
+(defn- set-x-pos [ss] 
+  (let [x (if (= ss 0) 4 (+ 4 (* ss 13.6)))
+        y "9%"]
+    (goog.math.Coordinate. x y)))
 (defn handle-caret-pos [evt] (gstyle/setPosition caret (set-x-pos (.. evt -currentTarget -selectionStart))))
 
 ;; When the key down is ENTER, evaluate the text and run a command.
@@ -42,7 +45,6 @@
 
 (defn respond [response] 
   (let [el (hipo/create response)]
-    ;; (log/console el)
     (.appendChild output el)))
 
 ;; use escape to clear the terminal prompt.
