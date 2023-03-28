@@ -145,8 +145,6 @@ input#input {
 
 
 
-
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #31363b
   opacity: 1; /* Firefox */
