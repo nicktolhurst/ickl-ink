@@ -46,7 +46,7 @@
            (example "shorten https://www.example.com/")
            (example "shorten https://www.example.com/ myslug")]]})
 
-(defn- text-from [event] (.. event -currentTarget -value))
+(defn- text-from [event] (str/lower-case (.. event -currentTarget -value)))
 
 (defn- suggestions-exist-with? [text]
   (some #(str/includes? % text) (mapv name (keys suggestions))))
@@ -65,7 +65,6 @@
 
 (defn handler [event]
   (let [text (first (str/split (text-from event) #" "))]
-    (log/console text)
     (if (str/blank? text)
       (el/set-suggestion clear)
       (if (suggestions-exist-with? text)
