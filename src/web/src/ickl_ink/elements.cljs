@@ -30,5 +30,3 @@
 
 (defn set-suggestion [html] (hipo/reconciliate! suggestion html))
   
-  
- 

@@ -149,7 +149,7 @@ input#input {
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #31363b
+  color: #31363b;
   opacity: 1; /* Firefox */
 }
 
@@ -159,4 +159,12 @@ input#input {
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #31363b;
+}
+
+span.summary {
+  font-weight: 100;
+}
+
+span.example {
+  padding-left: 30px;
 }
