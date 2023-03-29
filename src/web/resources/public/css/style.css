@@ -7,6 +7,7 @@ body {
   background: #101013;
   padding: 0 48px;
   height: 100%;
+  cursor: text;
 }
 
 * {
@@ -16,6 +17,19 @@ body {
   text-rendering: optimizeLegibility; */
 }
 
+h2 {
+  color: #fadd00;
+  /* color: #00c1e4; */
+  /* color: #71f79f; */
+  margin: 0;
+  letter-spacing: 0.3em;
+  margin: 10px 0px;
+  font-weight: 100;
+  font-size: 28px;
+}
+
+
+
 #app {
   display: flex;
   flex-direction: column;
@@ -23,14 +37,6 @@ body {
   width: 100%;
   padding-top: 10px;
 }
-
-.header-text {
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 38px;
-  color: #ed254e;
-}
-
 
 form {
   width: 100%;
