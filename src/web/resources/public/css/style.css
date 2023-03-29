@@ -168,3 +168,17 @@ span.summary {
 span.example {
   padding-left: 30px;
 }
+
+@media only screen and (max-width: 950px) {
+  body {
+     padding-left: 20px;
+     padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cf7_custom_style_1 {
+     padding-left: 20px;
+     padding-right: 0;
+  }
+}

@@ -1,10 +1,13 @@
 (ns ickl-ink.cmd
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [ickl-ink.api :as api]
+            [ickl-ink.man :as man]
             [ickl-ink.terminal :as terminal]
             [cljs.core.async :refer [<!]]))
 
 (defn clear [] (terminal/clear-output))
+
+(defn help [args] (man/splain args))
 
 (defn shorten [args]
   (go 

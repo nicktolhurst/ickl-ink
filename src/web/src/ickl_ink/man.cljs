@@ -11,7 +11,7 @@
 
 (defn schema [text] [:em [:strong text]])
 
-(def splain
+(def suggestions
   {:clear [:span.suggestion
            (schema "clear")
            [:span.summary
@@ -49,10 +49,19 @@
 (defn- text-from [event] (.. event -currentTarget -value))
 
 (defn- suggestions-exist-with? [text]
-  (some #(str/includes? % text) (mapv name (keys splain))))
+  (some #(str/includes? % text) (mapv name (keys suggestions))))
 
 (defn- suggestions-from [text]
-  (filter #(str/includes? % text) (mapv name (keys splain))))
+  (filter #(str/includes? % text) (mapv name (keys suggestions))))
+
+(defn splain [args] 
+  (el/set-suggestion 
+   [:span.suggestion
+    (schema "Help Page!")
+    [:span.summary
+     [:br]
+     [:br] "Wants to help. Doesn't know how."
+     [:br]]]))
 
 (defn handler [event]
   (let [text (first (str/split (text-from event) #" "))]
@@ -61,5 +70,5 @@
       (el/set-suggestion clear)
       (if (suggestions-exist-with? text)
         (let [results (suggestions-from text)]
-          (el/set-suggestion (splain (keyword (first results)))))
+          (el/set-suggestion (suggestions (keyword (first results)))))
         (el/set-suggestion clear)))))
